@@ -1,1 +1,2 @@
-# Boas vindas ao Repositório da disciplina de LP2!
+# Boas vindas!
+##Serão armazenados todos os projetos relacionados à disciplina <blockquote>LP2</blockquote> que eu fiz...
