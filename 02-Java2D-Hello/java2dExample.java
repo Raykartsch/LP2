@@ -84,7 +84,7 @@ class Hello2DFrame extends JFrame {
 
         g.setColor(Color.red);
         g.drawOval(30,30,40,40);
-        g.fillOval(30,30,40,40);
+
 
         g.drawOval(280,280,40, 40);
         g.fillOval(280,280,40, 40);
