@@ -9,7 +9,7 @@ public class RectApp {
         r1.drag(1, 2);
         r1.print();
         int ar = r1.area();
-        System.out.format("Area: %d\n", ar);
+
 
         r1.drag(1, 2);
         r1.print();
