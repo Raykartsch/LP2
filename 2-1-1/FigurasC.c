@@ -3,11 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 
-// typedef struct {
-//     int x, y;
-//     int w, h;
-// } Rect;
-
 typedef struct {
     int radius;
     float excentrity;
@@ -20,10 +15,6 @@ typedef struct{
     
 } Pentagon;
 
-// void print(Rect *r){
-//     printf("Retangulo de tamanho(%d, %d) na posicao(%d, %d). \n", r->w, r->h, r->x, r->y);
-// };
-
 void printCircle(Circle *c){
     printf("\n\nCirculo de raio: %d \nPosicao:(%d, %d), \nExcentricidade: %.2f", c->radius, c->posx, c->posy, c->excentrity);
 }
@@ -33,8 +24,6 @@ void printPent(Pentagon *p){
 
 
 int main(){
-    // Rect r1 = {1, 1, 10, 10};
-    // print(&r1);
 
     Pentagon p1 = {15, 30, 150, 120, 90, 60, 30};
     printPent(&p1);
