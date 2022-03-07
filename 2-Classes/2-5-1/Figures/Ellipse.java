@@ -20,6 +20,7 @@ public class Ellipse {
 
     public void paint (Graphics g, Color color) {
         //Graphics2D g2d = (Graphics2D) g;
+        //
         g.setColor(color);
         g.fillOval(this.x,this.y, this.w, this.h);
         g.setColor(Color.black);

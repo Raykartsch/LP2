@@ -71,6 +71,7 @@ class ListFrame extends JFrame {
             int idx = this.ls.indexOf(e);
             //System.out.println(colors.get(idx));
             //e.fillColor(g, colors.get(idx));
+            //
             e.paint(g, colors.get(idx));
         }
 
