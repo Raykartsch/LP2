@@ -48,14 +48,14 @@ class ListFrame extends JFrame {
                     else if(evt.getKeyChar() == 'p') {
                         int[] xV = {rand.nextInt(700), rand.nextInt(700), rand.nextInt(700), rand.nextInt(700), rand.nextInt(700)};
                         int[] yV = {rand.nextInt(700), rand.nextInt(700), rand.nextInt(700), rand.nextInt(700), rand.nextInt(700)};
-                        figs.add(new Polygonal(xV, yV, rand.nextInt(5)));
+                        figs.add(new Polygonal(xV, yV, 5));
                         repaint();
                     }
                 }
             }
         );
 
-        this.setTitle("Lista de Retangulos e Elipses");
+        this.setTitle("Figures Java");
         this.setSize(600, 600);
     }
 
