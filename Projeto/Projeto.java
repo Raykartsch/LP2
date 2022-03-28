@@ -96,7 +96,7 @@ class ListFrame extends JFrame {
                 }
             }
         );
-        this.setTitle("Editor Gráfico Java");
+        this.setTitle("Editor Grafico Java");
         this.setSize(400,400);
     }
 
