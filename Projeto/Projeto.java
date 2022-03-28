@@ -26,7 +26,7 @@ class ListFrame extends JFrame {
     ArrayList<Color> colors = new ArrayList<Color>();
     Random rand = new Random();
     boolean found = false;
-    
+    int index;
     //Color Red = new Color(255, 0, 0);
 
     Figure focus = null;
@@ -55,6 +55,11 @@ class ListFrame extends JFrame {
                         figs.add(new Ellipse(mouseX, mouseY, 20, 20));
                         repaint();
                     }
+                    else if((evt.getKeyChar() == 'd') & (focus != null)){
+                        figs.remove(figs.get(index));
+                        focus = null;
+                        repaint();
+                    }
                 }
             }
         );
@@ -64,12 +69,14 @@ class ListFrame extends JFrame {
                 public void mousePressed(MouseEvent evt){
                     found = false;
                     focus = null;
+                    
                     //for (Figure fig: figs){
                     for (int i = figs.size() - 1; i >= 0; i--) {
                         Figure fig = figs.get(i);
                         if((evt.getX() >= fig.x && evt.getX() <= fig.x + fig.w) && (evt.getY() >= fig.y && evt.getY() <= fig.y + fig.h)){
                             Figure fig_replace = fig;
                             focus = fig;
+                            index = i;
                             figs.remove(fig);
                             figs.add(fig_replace);
                             found = true;
