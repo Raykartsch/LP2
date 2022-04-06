@@ -1,5 +1,5 @@
 #Instruções para execução do trabalho
-1. Coloque o arquivo em que o mesmo se encontra no terminal dentro uma pasta na sua máquina
+1. Coloque o arquivo em uma pasta em sua máquina, em seguida, direcione o caminho do mesmo no seu prompt de comando.
 2. Execute o seguinte comando na linha de comando: javac Projeto.java
 3. Em seguida, execute o seguinte comando: java Projeto.java
 4. Será aberta uma janela onde será possível testar o projeto
