@@ -11,30 +11,26 @@ public class Ellipse extends Figure{
 
     public Ellipse (int x, int y, int w, int h) {
         super(x, y, w, h);
-        x1 = x;
-        y2 = y;
-        w1 = w;
-        h2 = h;
     };
 
     public void print () {
         System.out.format("Elipse de tamanho (%d,%d) na posicao (%d,%d).\n",
-            this.w1, this.h2, this.x1, this.y2);
+            w, h, x, y);
     }
 
     public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g.drawOval(x1, y2, w1, h2);
+        g.drawOval(x, y, w, h);
     }
 
     public void changeLineColor(Graphics g, Color color){
         Graphics2D g2d = (Graphics2D) g;
         g.setColor(color);
-        g.drawOval(x1, y2, w1, h2);
+        g.drawOval(x, y, w, h);
     }
 
     public void FillColor(Graphics g, Color color) {
         g.setColor(color);
-        g.fillOval(this.x1,this.y2, this.w1,this.h2);
+        g.fillOval(x, y, w, h);
     }
 }
