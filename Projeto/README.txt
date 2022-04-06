@@ -5,9 +5,13 @@
 4. Será aberta uma janela onde será possível testar o projeto
 
 
-<b>Comandos:</b>
+Comandos:
 R - Cria um quadrado
+
 E - Cria uma elipse
+
 D - Delete um objeto em foco
+
 Clique direito do mouse - Foca em uma figura, estando uma figura focada é possível realizar a movimentação da mesma pela tela, assim como modificar o seu tamanho.
+
 Alt - Se mantiver o comando "Alt" e arrastar o mouse em cima de uma figura focada, é possível alterar o tamanho da figura.
