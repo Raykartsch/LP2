@@ -5,7 +5,7 @@
 4. Será aberta uma janela onde será possível testar o projeto
 
 
-Comandos:
+<b>Comandos:</b>
 R - Cria um quadrado
 E - Cria uma elipse
 D - Delete um objeto em foco
