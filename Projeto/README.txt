@@ -49,6 +49,13 @@ Clique meio do mouse (Botão do scroll) = Ao clicar em cima de figura FOCADA com
 
 
 
+PONTOS PENDENTES:
+
+A cor vermelha do foco bugou, arrumar.
+
+Criação de mais de uma figura.
+
+A figura triângulo apenas se movimenta, não é possível alterar o seu tamanho.
 
 
 
