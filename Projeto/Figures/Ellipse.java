@@ -9,8 +9,8 @@ public class Ellipse extends Figure{
     int x1, y2;
     int w1, h2;
 
-    public Ellipse (int x, int y, int w, int h) {
-        super(x, y, w, h);
+    public Ellipse (int x, int y, int w, int h, int xV[], int yV[], Color cor, Color lineColor) {
+        super(x, y, w, h, xV, yV, cor, lineColor);
     };
 
     public void print () {
@@ -23,14 +23,15 @@ public class Ellipse extends Figure{
         g.drawOval(x, y, w, h);
     }
 
-    public void changeLineColor(Graphics g, Color color){
+    public void changeLineColor(Graphics g, Color color, int size){
         Graphics2D g2d = (Graphics2D) g;
-        g.setColor(color);
+        g2d.setStroke(new BasicStroke(size));
+        g.setColor(lineColor);
         g.drawOval(x, y, w, h);
     }
 
     public void FillColor(Graphics g, Color color) {
-        g.setColor(color);
+        g.setColor(cor);
         g.fillOval(x, y, w, h);
     }
 }
