@@ -48,8 +48,7 @@ class ListFrame extends JFrame {
     Color newFillColor = new Color(255, 255, 255);
     Color newLineColor = new Color(255, 255, 255);
 
-    ListFrame () {
-        
+    ListFrame () {  
         this.addWindowListener (
             new WindowAdapter() {
                 public void windowClosing (WindowEvent e) {
@@ -86,20 +85,19 @@ class ListFrame extends JFrame {
                         figs.add(new Triangule(mouseX, mouseY - 30, 30, 30, xValues, yValues, new Color(255, 255, 255), new Color(0, 0, 0)));
 
                         focus = figs.get(figs.size()-1);
-                        System.out.format("X: (%d), Y: (%d) W: (%d) H: (%d)", focus.x, focus.y, focus.w, focus.h);
-                        //repaint(mouseX, mouseY, 60, 60);
+                        //System.out.format("X: (%d), Y: (%d) W: (%d) H: (%d)", focus.x, focus.y, focus.w, focus.h);
+                        repaint(mouseX, mouseY, 60, 60);
                     }
 
-                    //Criar cor randômica para o fundo da figura
-
-
+                    //Cria cor randômica para o fundo da figura
                     else if(evt.getKeyChar() == 'f'){
                         newFillColor = new Color(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
                         Colorfill.cor = newFillColor;
-                        System.out.format("(%d) ", newFillColor);
+                        //System.out.format("(%d) ", newFillColor);
                         repaint();
                     }
 
+                    //Cria cor randômica para o contorno da figura
                     else if(evt.getKeyChar() == 'g'){
                         newLineColor = new Color(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
                         Linefill.cor = newLineColor;
@@ -111,11 +109,10 @@ class ListFrame extends JFrame {
                     else if((evt.getKeyChar() == 'd') && (focus != null)){
                         figs.remove(figs.get(figs.size()-1));
                         focus = null;
-                        
                         repaint(mouseX, mouseY, 60, 60);
                     }
 
-                    //Aumentar tamanho
+                    //Permite aumentar o tamanho
                     else if(evt.isAltDown()){
                         canIncrease = true;
                     }
@@ -141,13 +138,14 @@ class ListFrame extends JFrame {
                     else if((evt.getKeyChar() == '+') && (focus != null)){
                         figs.get(figs.size()-1).w += 5;
                         figs.get(figs.size()-1).h += 5;
+                        
                         repaint();
                     }
 
                     else if((evt.getKeyChar() == '-') && (focus != null)){
 
-                        figs.get(figs.size()-1).w -= 2;
-                        figs.get(figs.size()-1).h -= 2;
+                        figs.get(figs.size()-1).w -= 5;
+                        figs.get(figs.size()-1).h -= 5;
                         repaint();
                     }       
                 }
@@ -163,16 +161,15 @@ class ListFrame extends JFrame {
         this.addMouseListener(
             new MouseAdapter(){
                 public void mouseClicked(MouseEvent evt){
-                    
+                    int x = evt.getX();
+                    int y = evt.getY();
                     if (evt.getButton() == evt.BUTTON1){
                         found = false;
                         focus = null;
                         for (int i = figs.size() - 1; i >= 0; i--) {
                             Figure fig = figs.get(i);
-                            if((evt.getX() >= fig.x && evt.getX() <= fig.x + fig.w) && (evt.getY() >= fig.y && evt.getY() <= fig.y + fig.h)){
+                            if(fig.clicked(x, y)){
                                 Figure fig_replace = fig;
-
-                                location = i;
                                 focus = fig_replace;
                                 figs.remove(fig);
                                 figs.add(fig_replace);
@@ -190,7 +187,6 @@ class ListFrame extends JFrame {
                     }
 
                     else if (evt.getButton() == evt.BUTTON2) {
-                        System.out.println("Meio");
                         if (focus != null){
                             figs.get(figs.size()-1).lineColor = newLineColor;
                             repaint();
@@ -198,7 +194,6 @@ class ListFrame extends JFrame {
                         
                     }
                     else if (evt.getButton() == evt.BUTTON3) {
-                        System.out.println("Direito");
                         if (focus != null){
                             figs.get(figs.size()-1).cor = newFillColor;
                             repaint();
@@ -222,24 +217,26 @@ class ListFrame extends JFrame {
 
                     Figure lastFig = figs.get(figs.size()-1);
 
-                    if ((focus != null)){
+                    if ((focus != null) && lastFig.clicked((int)evt.getX(), (int)evt.getY())){
                         focus = figs.get(figs.size()-1);
                         if (canIncrease == false){
-                            lastFig.x = lastFig.x + (int)(dx * 1.3);
-                            lastFig.y = lastFig.y + (int)(dy * 1.3);
-                            lastFig.xV[0] = lastFig.xV[0] + (int)(dx * 1.3);
-                            lastFig.xV[1] = lastFig.xV[1] + (int)(dx * 1.3);
-                            lastFig.xV[2] = lastFig.xV[2] + (int)(dx * 1.3);
+                            lastFig.x = lastFig.x + (int)(dx);
+                            lastFig.y = lastFig.y + (int)(dy);
 
-                            lastFig.yV[0] = lastFig.yV[0] + (int)(dy * 1.3);
-                            lastFig.yV[1] = lastFig.yV[1] + (int)(dy * 1.3);
-                            lastFig.yV[2] = lastFig.yV[2] + (int)(dy * 1.3);
+                            lastFig.xV[0] = lastFig.xV[0] + (int)(dx);
+                            lastFig.xV[1] = lastFig.xV[1] + (int)(dx);
+                            lastFig.xV[2] = lastFig.xV[2] + (int)(dx);
+
+                            lastFig.yV[0] = lastFig.yV[0] + (int)(dy);
+                            lastFig.yV[1] = lastFig.yV[1] + (int)(dy);
+                            lastFig.yV[2] = lastFig.yV[2] + (int)(dy);
                         }
                         else if (canIncrease == true){
-                            if((clickX >= lastFig.x) & (clickY >= lastFig.y)){
+                            if((clickX >= lastFig.x) && (clickY >= lastFig.y)){
 
                                 lastFig.w = lastFig.w + dx;
                                 lastFig.h = lastFig.h + dy;
+
                             }
                             else if((clickX <= lastFig.x) & (clickY >= lastFig.y)){
                                 d = dx*(-1);
@@ -280,7 +277,7 @@ class ListFrame extends JFrame {
             }
         );
         this.setTitle("Editor Grafico Java");
-        this.setSize(600, 600);
+        this.setSize(800, 800);
     }
 
     public void paint (Graphics g) {
@@ -302,7 +299,6 @@ class ListFrame extends JFrame {
             Linefill.FillColor(g, Linefill.cor);
             Linefill.changeLineColor(g, Color.BLACK, 2);
     
-            //focus = figs.get(figs.size()-1);
 
             if(focus != null){
                 focus.changeLineColor(g, Color.red, 8); 
