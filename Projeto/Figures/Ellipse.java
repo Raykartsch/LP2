@@ -13,7 +13,7 @@ public class Ellipse extends Figure{
         super(x, y, w, h, xV, yV, cor, lineColor);
     };
 
-    public void print () {
+    private void print () {
         System.out.format("Elipse de tamanho (%d,%d) na posicao (%d,%d).\n",
             w, h, x, y);
     }

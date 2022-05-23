@@ -17,7 +17,7 @@ public class Rect extends Figure{
         g2d.drawRect(x, y, w, h);
     }
 
-    public void print(){
+    private void print(){
         System.out.format("Retangulo de tamanho (%d, %d) na posicao (%d, %d).\n",
         w, h, x, y);
     }
